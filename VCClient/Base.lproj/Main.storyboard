@@ -41,7 +41,7 @@
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="E8z-wa-TYw" kind="show" id="PcU-iB-Yxp"/>
+                                    <segue destination="E8z-wa-TYw" kind="show" identifier="enterButton" id="PcU-iB-Yxp"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="login" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="hwb-lv-5Vl">
@@ -76,6 +76,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SI3-Pe-jXw"/>
+                    <connections>
+                        <outlet property="loginField" destination="hwb-lv-5Vl" id="ziV-Vl-wuL"/>
+                        <outlet property="passwordField" destination="Ivb-yV-8Wk" id="Tlh-o0-ZND"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -248,7 +252,8 @@
         <!--groups-->
         <scene sceneID="3Kg-PB-jlH">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4Qy-AV-X20" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sc2-v3-ieV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="4Qy-AV-X20" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="groups" image="circle.hexagongrid.fill" catalog="system" id="P7a-Au-UCp"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Os9-yH-mMT">
@@ -256,11 +261,14 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="54v-CM-lxp">
+                        <rect key="frame" x="0.0" y="720" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="JiP-32-He4" kind="relationship" relationship="rootViewController" id="oVj-2F-eug"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sc2-v3-ieV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2802.2900763358775" y="234.50704225352115"/>
         </scene>
@@ -286,6 +294,7 @@
         <!--Navigation Controller-->
         <scene sceneID="3iM-Bz-acA">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ws6-0J-hlz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wdX-Pf-Qc4" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wWR-BH-Qyk">
@@ -297,7 +306,6 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="cDM-yc-Hj2"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ws6-0J-hlz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-509.16030534351142" y="-142.25352112676057"/>
         </scene>
