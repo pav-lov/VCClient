@@ -26,6 +26,10 @@ class ViewController: UIViewController {
         let passInput = passwordField.text
         
         if (loginInput == login) && (passInput == pass) {
+            
+            self.loginField.text = ""
+            self.passwordField.text = ""
+            
             return true
         } else {
             let alert = UIAlertController(title: "Ошибка",
