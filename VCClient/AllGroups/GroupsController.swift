@@ -28,7 +28,7 @@ class GroupsController: UIViewController, UITableViewDataSource, UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "GroupsCell") as! GroupsViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AllGroupsCell") as! GroupsViewCell
         let index = indexPath.row
         let name = groupsData[index].0
         let image = groupsData[index].1
