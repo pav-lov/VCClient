@@ -13,9 +13,5 @@ class MyGroupsCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var imageLabel: UIImageView!
     
-   func setData(name: String, image: UIImage) {
-        nameLabel.text = name
-        imageLabel.image = image
-   }
     
 }

@@ -11,7 +11,7 @@ class MyGroupsController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBOutlet weak var tableViewMyGroups: UITableView!
     
-    var groups = [(String, UIImage)]() // создаем пустой массив
+    var groups = [(String, UIImage)] () // создаем пустой массив
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,14 +27,15 @@ class MyGroupsController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Получаем ячейку из пула
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyGroupsCell", for: indexPath) as! MyGroupsCell
-        // Получаем группу для конкретной строки
-        let group = groups[indexPath.row]
         
-        // Устанавливаем группу в надпись и изображение ячейки
+        // Получаем группу для конкретной строки
+        //let group = groups[indexPath.row]
+        
         let index = indexPath.row
         let name = groups[index].0
         let image = groups[index].1
         
+        // Устанавливаем группу и надпись изображение ячейки
         cell.nameLabel.text = name
         cell.imageLabel.image = image
         
@@ -42,22 +43,34 @@ class MyGroupsController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     @IBAction func addGroup(segue: UIStoryboardSegue) {
-        
         // Проверяем идентификатор, чтобы убедиться, что это нужный переход
-        if segue.identifier == "addGroup" {
-        // Получаем ссылку на контроллер, с которого осуществлен переход
-        let allGroupsController = segue.source as! GroupsController
-        // Получаем индекс выделенной ячейки
-        if let indexPath = allGroupsController.tableViewGroups.indexPathForSelectedRow {
-        // Получаем группу по индексу
-        let group = allGroupsController.groupsData[indexPath.row]
-        // Добавляем группу в список выбранных групп
-        groups.append(group)
-        // Обновляем таблицу
-        tableViewMyGroups.reloadData()
+            if segue.identifier == "addGroup" {
+                // Получаем ссылку на контроллер, с которого осуществлен переход
+                guard let allGroupsController = segue.source as? GroupsController else { return }
+                // Получаем индекс выделенной ячейки
+                if let indexPath = allGroupsController.tableViewGroups.indexPathForSelectedRow {
+                    // Получаем группу по индексу
+                    let group = allGroupsController.groupsData[indexPath.row]
+                    // Если не содержится, добавляем группу в список выбранных групп
+                    
+                   //  Доделать!!!! if !groups.contains(where: group) {
+                        groups.append(group)
+                      //  }
+                    // Обновляем таблицу
+                    tableViewMyGroups.reloadData()
         
-        }
+                }
         }
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    // Если была нажата кнопка «Удалить»
+    if editingStyle == .delete {
+        // Удаляем город из массива
+        groups.remove(at: indexPath.row)
+        // И удаляем строку из таблицы
+        tableView.deleteRows(at: [indexPath], with: .fade) }
+    }
+        
 }
+
