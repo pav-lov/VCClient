@@ -53,9 +53,9 @@ class MyGroupsController: UIViewController, UITableViewDataSource, UITableViewDe
                     let group = allGroupsController.groupsData[indexPath.row]
                     // Если не содержится, добавляем группу в список выбранных групп
                     
-                   //  Доделать!!!! if !groups.contains(where: group) {
+                    if !groups.contains(where: {$0 == group}) {
                         groups.append(group)
-                      //  }
+                      }
                     // Обновляем таблицу
                     tableViewMyGroups.reloadData()
         
